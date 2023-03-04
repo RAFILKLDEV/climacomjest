@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const ClimateS = styled.div`
   height: 300px;
   width: 300px;
-  background-image: ${({ image }: { image: string }) => image};
   background-color: blue;
   display: flex;
   flex-direction: column;
@@ -16,6 +15,13 @@ export const Title = styled.div`
   font-size: 30px;
   font-weight: 600;
   color: white;
+`;
+
+export const Desc = styled.div`
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+  padding: 0px 20px;
 `;
 
 export const Bar = styled.div`
