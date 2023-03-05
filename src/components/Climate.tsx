@@ -11,30 +11,60 @@ export function Climate({
     switch (code) {
       case 0:
         return "Céu limpo";
-      case 1 | 2 | 3:
-        return "Principalmente limpo, parcialmente nublado e encoberto";
-      case 45 | 48:
-        return "Nevoeiro e depósito de nevoeiro de geada";
-      case 51 | 53 | 55:
-        return "Garoa: Intensidade leve, moderada e densa";
-      case 56 | 57:
-        return "Garoa Congelante: Intensidade leve e densa";
-      case 61 | 63 | 65:
-        return "Chuva: Intensidade leve, moderada e forte";
-      case 66 | 67:
-        return "Chuva Congelante: Intensidade leve e forte";
-      case 71 | 73 | 75:
-        return "Queda de neve: Intensidade leve, moderada e forte";
+      case 1:
+        return "Principalmente limpo";
+      case 2:
+        return "Parcialmente nublado";
+      case 3:
+        return "Parcialmente nublado e encoberto";
+      case 45:
+        return "Nevoeiro";
+      case 48:
+        return "Nevoeiro e com possibilidade de geada";
+      case 51:
+        return "Garoa leve";
+      case 53:
+        return "Garoa moderada";
+      case 55:
+        return "Garoa alta Intensidade";
+      case 56:
+        return "Garoa Congelante Leve";
+      case 57:
+        return "Garoa Congelante Densa";
+      case 61:
+        return "Chuva Leve";
+      case 63:
+        return "Chuva Moderada";
+      case 65:
+        return "Chuva Forte";
+      case 66:
+        return "Chuva Congelante leve";
+      case 67:
+        return "Chuva Congelante forte";
+      case 71:
+        return "Queda de neve leve";
+      case 73:
+        return "Queda de neve moderada";
+      case 75:
+        return "Queda de neve forte";
       case 77:
         return "Flocos de neve";
-      case 80 | 81 | 82:
-        return "Pancadas de chuva: Leves, moderadas e violentas";
-      case 85 | 86:
-        return "Aguaceiros de neve leves e pesados";
+      case 80:
+        return "Pancadas de chuva Leve";
+      case 81:
+        return "Pancadas de chuva Moderadas";
+      case 82:
+        return "Pancadas de chuva Violentas";
+      case 85:
+        return "Aguaceiros de neve leves";
+      case 86:
+        return "Aguaceiros de neve pesados";
       case 95:
         return "Trovoada: leve ou moderada";
-      case 96 | 99:
-        return "Trovoada com granizo leve e forte";
+      case 96:
+        return "Trovoada com granizo leve";
+      case 99:
+        return "Trovoada com granizo forte";
       default:
         return "Céu limpinho";
     }
