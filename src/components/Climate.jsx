@@ -1,11 +1,8 @@
 import { Bar, ClimateS, Degrees, Desc, Icon, Title } from "@/styles/ClimateS";
+import { ClimateTypes } from "@/types";
 
-export function Climate({
-  weather,
-}: {
-  weather: { current_weather: { temperature: string; weathercode: number } };
-}) {
-  function weatherCode(code: number) {
+export function Climate({ weather }) {
+  function weatherCode(code) {
     console.log(iconWeatherCode(2));
 
     switch (code) {
@@ -70,7 +67,7 @@ export function Climate({
     }
   }
 
-  function iconWeatherCode(code: number) {
+  function iconWeatherCode(code) {
     switch (code) {
       case 1 | 2 | 3:
         return "../assets/imgs/nublado";

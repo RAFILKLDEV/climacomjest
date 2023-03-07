@@ -1,21 +1,22 @@
 import { Climate } from "@/components/Climate";
 import { GlobalStyle } from "@/styles/GlobalStyles";
+import { ClimateTypes } from "@/types";
 import Head from "next/head";
 
-export async function getStaticProps() {
+export function getStaticProps() {
+  const addressList = [
+    "https://api.open-meteo.com/v1/forecast?latitude=-21.11&longitude=-47.83&current_weather=true&timezone=America%2FSao_Paulo",
+  ];
   const address =
     "https://api.open-meteo.com/v1/forecast?latitude=-23.55&longitude=-46.64&current_weather=true&timezone=America%2FSao_Paulo";
-  const data = await fetch(address);
-  const result = await data.json();
 
-  return { props: { result } };
+  return {
+    props: { adressfoda },
+  };
 }
 
-export default function Home({
-  result,
-}: {
-  result: { current_weather: { temperature: string; weathercode: number } };
-}) {
+export default function Home({ results }) {
+  console.log(results);
   return (
     <>
       <GlobalStyle />
@@ -25,9 +26,7 @@ export default function Home({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <Climate weather={result}></Climate>
-      </main>
+      <main></main>
     </>
   );
 }
