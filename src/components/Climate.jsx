@@ -1,10 +1,8 @@
 import { Bar, ClimateS, Degrees, Desc, Icon, Title } from "@/styles/ClimateS";
 import { ClimateTypes } from "@/types";
 
-export function Climate({ weather }) {
+export function Climate({ weather, name }) {
   function weatherCode(code) {
-    console.log(iconWeatherCode(2));
-
     switch (code) {
       case 0:
         return "Céu limpo";
@@ -68,23 +66,31 @@ export function Climate({ weather }) {
   }
 
   function iconWeatherCode(code) {
-    switch (code) {
-      case 1 | 2 | 3:
-        return "../assets/imgs/nublado";
-      case 51 | 53 | 55 | 61 | 63 | 65 | 95:
-        return "@/assets/imgs/trovoada";
-      case 0:
-        return "@/assets/imgs/sol";
-      default:
+    if (code === 1 || code === 2 || code === 3) {
+      return "/imgs/nublado.png";
+    } else if (
+      code === 51 ||
+      code === 53 ||
+      code === 55 ||
+      code === 61 ||
+      code === 63 ||
+      code === 65 ||
+      code === 95
+    ) {
+      return "/imgs/trovoada.png";
+    } else if (code === 0) {
+      return "/imgs/sol.png";
     }
   }
 
   return (
     <ClimateS>
-      <Title>São Paulo</Title>
+      <Title>{name}</Title>
       <Bar>
-        <Icon src={iconWeatherCode(1)} />
-        <Degrees>{weather.current_weather.temperature}°</Degrees>
+        <Icon
+          src={iconWeatherCode(weather.current_weather.weathercode, name)}
+        />
+        <Degrees>{weather.current_weather.temperature}°C</Degrees>
       </Bar>
       <Desc>{weatherCode(weather.current_weather.weathercode)}</Desc>
     </ClimateS>
