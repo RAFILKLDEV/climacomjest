@@ -7,11 +7,11 @@ export function Climate({ weather, name }) {
       case 0:
         return "Céu limpo";
       case 1:
-        return "Principalmente limpo";
+        return "Parcialmente limpo";
       case 2:
         return "Parcialmente nublado";
       case 3:
-        return "Parcialmente nublado e encoberto";
+        return "Nublado e encoberto";
       case 45:
         return "Nevoeiro";
       case 48:
@@ -51,9 +51,9 @@ export function Climate({ weather, name }) {
       case 82:
         return "Pancadas de chuva Violentas";
       case 85:
-        return "Aguaceiros de neve leves";
+        return "Pancadas de neve leves";
       case 86:
-        return "Aguaceiros de neve pesados";
+        return "Pancadas de neve pesados";
       case 95:
         return "Trovoada: leve ou moderada";
       case 96:
@@ -65,31 +65,49 @@ export function Climate({ weather, name }) {
     }
   }
 
-  function iconWeatherCode(code) {
-    if (code === 1 || code === 2 || code === 3) {
-      return "/imgs/nublado.png";
-    } else if (
-      code === 51 ||
-      code === 53 ||
-      code === 55 ||
-      code === 61 ||
-      code === 63 ||
-      code === 65 ||
-      code === 95
-    ) {
-      return "/imgs/trovoada.png";
-    } else if (code === 0) {
-      return "/imgs/sol.png";
+  function backgroundImg(code) {
+    switch (code) {
+      case 0:
+      case 1:
+        return "/imgs/Limpo.png";
+      case 2:
+        return "/imgs/ParcialNublado.png";
+      case 3:
+        return "/imgs/Nublado.png";
+      case 45:
+      case 48:
+      case 55:
+      case 56:
+      case 57:
+      case 66:
+      case 67:
+      case 71:
+      case 73:
+      case 75:
+      case 77:
+        return "/imgs/Neve.png";
+      case 51:
+      case 53:
+      case 61:
+      case 63:
+      case 65:
+        return "/imgs/Chuva.png";
+      case 80:
+      case 81:
+      case 82:
+      case 85:
+      case 86:
+      case 95:
+      case 96:
+      case 99:
+        return "/imgs/Tempestade.png";
     }
   }
 
   return (
-    <ClimateS>
+    <ClimateS image={backgroundImg(weather.current_weather.weathercode)}>
       <Title>{name}</Title>
       <Bar>
-        <Icon
-          src={iconWeatherCode(weather.current_weather.weathercode, name)}
-        />
         <Degrees>{weather.current_weather.temperature}°C</Degrees>
       </Bar>
       <Desc>{weatherCode(weather.current_weather.weathercode)}</Desc>

@@ -1,5 +1,6 @@
 import { Climate } from "@/components/Climate";
 import { GlobalStyle } from "@/styles/GlobalStyles";
+import { WeatherS } from "@/styles/WeatherS";
 import { ClimateTypes } from "@/types";
 import Head from "next/head";
 
@@ -56,11 +57,11 @@ export default function Home({ data }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <WeatherS>
         {data.map((e, i) => (
           <Climate key={i} weather={e} name={countryList[i]} />
         ))}
-      </main>
+      </WeatherS>
     </>
   );
 }
