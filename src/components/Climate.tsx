@@ -1,8 +1,8 @@
-import { Bar, ClimateS, Degrees, Desc, Icon, Title } from "@/styles/ClimateS";
+import { Bar, ClimateS, Degrees, Desc, Title } from "@/styles/ClimateS";
 import { ClimateTypes } from "@/types";
 
-export function Climate({ weather, name }) {
-  function weatherCode(code) {
+export function Climate({ weather, name }: ClimateTypes) {
+  function weatherCode(code: number) {
     switch (code) {
       case 0:
         return "Céu limpo";
@@ -65,7 +65,7 @@ export function Climate({ weather, name }) {
     }
   }
 
-  function backgroundImg(code) {
+  function backgroundImg(code: number) {
     switch (code) {
       case 0:
       case 1:

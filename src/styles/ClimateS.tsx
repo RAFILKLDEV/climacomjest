@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ClimateS = styled.div`
   height: 280px;
   width: 400px;
-  background-image: ${({ image }: { image: string }) => `url(${image})`};
+  background-image: ${({ image }: { image?: string }) => `url(${image})`};
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;

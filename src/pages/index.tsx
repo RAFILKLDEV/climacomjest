@@ -1,7 +1,7 @@
 import { Climate } from "@/components/Climate";
 import { GlobalStyle } from "@/styles/GlobalStyles";
 import { WeatherS } from "@/styles/WeatherS";
-import { ClimateTypes } from "@/types";
+import { ClimateTypes, resultTypes } from "@/types";
 import Head from "next/head";
 
 export async function getStaticProps() {
@@ -18,9 +18,7 @@ export async function getStaticProps() {
     "https://api.open-meteo.com/v1/forecast?latitude=-17.05&longitude=-68.62&current_weather=true&timezone=America%2FSao_Paulo",
   ];
 
-  // const response = await fetch(address);
-  // const data = await response.json();
-  const result = [];
+  const result: resultTypes[] = [];
 
   for (let index = 0; index < addressList.length; index++) {
     const element = addressList[index];
@@ -34,7 +32,11 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ data }) {
+export default function Home({
+  data,
+}: {
+  data: { current_weather: { weathercode: number; temperature: string } }[];
+}) {
   const countryList = [
     "Brasília",
     "Washington",
