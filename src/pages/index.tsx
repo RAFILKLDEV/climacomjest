@@ -6,6 +6,16 @@ import Head from "next/head";
 
 export async function getStaticProps() {
   const addressList = [
+    "https://api.open-meteo.com/v1/forecast?latitude=-15.78&longitude=-47.93&current_weather=true&timezone=America%2FSao_Paulo",
+    "https://api.open-meteo.com/v1/forecast?latitude=38.90&longitude=-77.04&current_weather=true&timezone=America%2FSao_Paulo",
+    "https://api.open-meteo.com/v1/forecast?latitude=39.91&longitude=116.40&current_weather=true&timezone=America%2FSao_Paulo",
+    "https://api.open-meteo.com/v1/forecast?latitude=55.75&longitude=37.62&current_weather=true&timezone=America%2FSao_Paulo",
+    "https://api.open-meteo.com/v1/forecast?latitude=35.69&longitude=139.69&current_weather=true&timezone=America%2FSao_Paulo",
+    "https://api.open-meteo.com/v1/forecast?latitude=48.85&longitude=2.35&current_weather=true&timezone=America%2FSao_Paulo",
+    "https://api.open-meteo.com/v1/forecast?latitude=51.51&longitude=-0.13&current_weather=true&timezone=America%2FSao_Paulo",
+    "https://api.open-meteo.com/v1/forecast?latitude=28.65&longitude=77.23&current_weather=true&timezone=America%2FSao_Paulo",
+    "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true&timezone=America%2FSao_Paulo",
+    "https://api.open-meteo.com/v1/forecast?latitude=-17.05&longitude=-68.62&current_weather=true&timezone=America%2FSao_Paulo",
     "https://api.open-meteo.com/v1/forecast?latitude=-21.18&longitude=-47.81&current_weather=true&timezone=America%2FSao_Paulo",
   ];
 
@@ -20,6 +30,7 @@ export async function getStaticProps() {
 
   return {
     props: { data: result },
+    revalidate: 60,
   };
 }
 
